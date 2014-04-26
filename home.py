@@ -8,5 +8,5 @@ def home():
   return "Welcome to Jian's world!"
 
 @app.route('/xiaomo')
-def home():
+def xiaomo():
   return "happy every day -- fighting for the future"
