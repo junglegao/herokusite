@@ -6,3 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
   return "Welcome to Jian's world!"
+
+@app.route('/xiaomo')
+def home():
+  return "happy every day -- fighting for the future"
