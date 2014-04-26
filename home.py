@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -9,4 +10,4 @@ def home():
 
 @app.route('/xiaomo')
 def xiaomo():
-  return '''Having you being my girl friend is the best honor and greatest luck\nWish you happy every day -- fighting for the future'''
+  return render_template("home.html")
