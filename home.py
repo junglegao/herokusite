@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask import render_template
 import datetime
+import pytz
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -11,7 +12,7 @@ def home():
 
 @app.route('/xiaomo')
 def xiaomo():
-  delta_t = datetime.datetime.now()-datetime.datetime(2014, 2, 23, 21, 31, 48)
+  delta_t = datetime.datetime.now()-datetime.datetime(2014, 2, 23, 21, 31, 48, tzinfo=pytz.timezone('Asia/Hong_Kong'))
   day = delta_t.days
   hour = delta_t.seconds/3600
   minute = delta_t.seconds%3600/60
