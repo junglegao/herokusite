@@ -12,7 +12,8 @@ def home():
 
 @app.route('/xiaomo')
 def xiaomo():
-  delta_t = datetime.datetime.now()-datetime.datetime(2014, 2, 23, 21, 31, 48, tzinfo=pytz.timezone('Asia/Hong_Kong'))
+  delta_t = datetime.datetime.now(pytz.timezone('Asia/Hong_Kong'))-\
+      datetime.datetime(2014, 2, 23, 21, 31, 48, tzinfo=pytz.timezone('Asia/Hong_Kong'))
   day = delta_t.days
   hour = delta_t.seconds/3600
   minute = delta_t.seconds%3600/60
