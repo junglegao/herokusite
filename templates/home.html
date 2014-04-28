@@ -1,4 +1,5 @@
 <!doctype html>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>xiaomo</title>
   <body>
     <h1>Happy every day -- fighting for our future!</h1>
@@ -16,7 +17,47 @@
     <h3>还有未来的更多的第一次等着我们...</h3>
     <br>
     <br>
-    <h4>距离我们相识已经过了{{t['day']}}天{{t['hour']}}小时{{t['minute']}}分{{t['second']}}秒</h3>
+    <div class=timer>
+    	距离我们相识已经过了
+        <label id="days"></label>天<label id="hours"></label>小时
+    	<label id="minutes">00</label>分钟<label id="seconds">00</label>秒
+    </div>
+    <script type="text/javascript">
+    	var daysLabel = document.getElementById("days");
+        var hoursLabel = document.getElementById("hours");
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+        
+        var initTime = new Date("2014-02-23T21:31:48.000+08:00")
+        var nowTime = new Date()
+        var deltaTime = parseInt((nowTime-initTime)/1000)
+        
+        var totalSeconds = 0;
+        setInterval(setTime, 1000);
+
+        function setTime()
+        {
+            ++deltaTime;
+            time = cal(deltaTime);
+            daysLabel.innerHTML = time[0];
+            hoursLabel.innerHTML = time[1];
+            minutesLabel.innerHTML = time[2];
+            secondsLabel.innerHTML = time[3];
+        }
+
+        
+        function cal(timeVal)
+        {
+        	var days = parseInt(timeVal/(3600*24));
+        	timeVal = timeVal - days*3600*24;
+        	var hours = parseInt(timeVal/3600);
+        	timeVal = timeVal - hours*3600;
+        	var minutes = parseInt(timeVal/60);
+        	timeVal = timeVal - minutes*60;
+        	var seconds = parseInt(timeVal);
+        	return [days, hours, minutes, seconds];        	
+        } 
+    </script>
   </body>
   <style>
     h1,h2,h4{
@@ -25,6 +66,10 @@
     h3{
       color:#ffffff;
       text-align:center;
+    }
+    .timer{
+      text-align:center;
+      font-weight:bold;
     }
   </style>
 
